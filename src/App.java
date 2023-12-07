@@ -11,17 +11,16 @@ public class App {
         static String Genero;
         static int CalifacionTeorica;
     public static void main(String[] args) throws Exception {
-        GeneraDatos();
-        
-       
+        try {
+            GeneraDatos();
+        } catch (Exception e) {
+            System.out.println("Error al crear el archivo");
+        }
     }
 
     public static void GeneraDatos() throws IOException{
         FileWriter archivoARFF = new FileWriter("Datos.arff");
-        
-        
-        
-        
+
         String aprobacion = "";
         
         archivoARFF.write("@relation Licencias\n");
