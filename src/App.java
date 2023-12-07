@@ -3,8 +3,16 @@ import java.io.IOException;
 import java.util.Random;
 
 public class App {
+        static Random random = new Random();
+        static int edad;
+        static int Estacionrandom;
+        static String Licencia;
+        static String Estacion;
+        static String Genero;
+        static int CalifacionTeorica;
     public static void main(String[] args) throws Exception {
         GeneraDatos();
+        
        
     }
 
@@ -12,14 +20,7 @@ public class App {
         FileWriter archivoARFF = new FileWriter("Datos.arff");
         
         
-        Random random = new Random();
-        int edad;
-        int licrandom = random.nextInt(3);
-        int Estacionrandom;
-        String Licencia;
-        String Estacion;
-        String Genero;
-        int CalifacionTeorica;
+        
         
         String aprobacion = "";
         
@@ -38,6 +39,7 @@ public class App {
             CalifacionTeorica = random.nextInt(11);
             edad = random.nextInt(50) + 16;
             Estacionrandom = random.nextInt(4);
+            int licrandom = random.nextInt(3);
             
             if (edad < 18) {
                 Licencia = "Auto";
@@ -96,7 +98,7 @@ public class App {
             }
             
             archivoARFF.write(edad + "," + Licencia + "," + Estacion + "," + Genero + "," + CalifacionTeorica + "," + CalifacionPractica + "," + aprobacion + "\n");
-
+            System.out.println(edad + ","+ licrandom + "," + Licencia + "," + Estacion + "," + Genero + "," + CalifacionTeorica + "," + CalifacionPractica + "," + aprobacion);
         }
 
         archivoARFF.close();
